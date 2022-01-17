@@ -18,15 +18,14 @@ CREATE TABLE Students
 
 CREATE TABLE Courses
 (
-    `Course_id` INT(10) PRIMARY KEY,
-    `Course_name` VARCHAR(100) NOT NULL,
-    `Course_code` VARCHAR(50) NOT NULL
+    `Course_id` VARCHAR(30) PRIMARY KEY,
+    `Course_name` VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Grades
 (
     `id` INT(10),
-    `Course_id` INT(10),
+    `Course_id` VARCHAR(30),
     `Grade` DECIMAL(10) NOT NULL,
     `Letter` VARCHAR(1) NOT NULL,
     FOREIGN KEY (id) REFERENCES Students(id),
@@ -64,3 +63,15 @@ VALUES
 ('Albertine Januszewicz', '1329683928', '2 Hermina Street', 'ajanuszewiczh@ucla.edu', '2001-08-10', 'Education', 'Sophomore'),
 ('Woodie Braidley', '8675525320', '812 Hudson Street', 'wbraidleyi@usatoday.com', '1999-05-06', 'Cybersecurity', 'Senior'),
 ('Pepito Devil', '7265974977', '970 Mitchell Hill', 'pdevilj@gnu.org', '2001-02-09', 'Computer Science', 'Sophomore');
+
+INSERT INTO Courses (Course_id, Course_name)
+VALUES
+('BMS 503', 'General Microbiology'),
+('BUS 530', 'Personal Finance'),
+('COMP 430', 'Systems Fundamentals'),
+('ENGL 401', 'First Year Writing'),
+('ET 421', 'Digital Electronics'),
+('MATH 425', 'Calculus I'),
+('SPAN 402', 'Elementary Spanish II'),
+('USMT 599', 'Special Topics'),
+('HLS 410', 'Introduction to Homeland Security');
