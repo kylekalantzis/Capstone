@@ -26,8 +26,8 @@ CREATE TABLE Grades
 (
     `id` INT(10),
     `Course_id` VARCHAR(30),
-    `Grade` DECIMAL(10) NOT NULL,
-    `Letter` VARCHAR(1) NOT NULL,
+    `Grade` DECIMAL(5, 2) NOT NULL,
+    `Letter` VARCHAR(2) NOT NULL,
     FOREIGN KEY (id) REFERENCES Students(id),
     FOREIGN KEY (Course_id) REFERENCES Courses(Course_id)
 );
@@ -74,4 +74,17 @@ VALUES
 ('MATH 425', 'Calculus I'),
 ('SPAN 402', 'Elementary Spanish II'),
 ('USMT 599', 'Special Topics'),
-('HLS 410', 'Introduction to Homeland Security');
+('HLS 410', 'Introduction to Homeland Security'),
+('ANTH 411', 'Introduction to Anthropology'),
+('CA 527', 'History of Film'),
+('CHEM 404', 'General Chemistry');
+
+
+-- Each student takes 4 classes
+INSERT INTO Grades (id, Course_id, Grade, Letter)
+VALUES
+('1', 'COMP 430', '90.3', 'A'),
+('1', 'BUS 530', '87.3', 'B+'),
+('1', 'ENGL 401', '81', 'B'),
+('1', 'USMT 599', '96', 'A+');
+-- Add the rest of students here

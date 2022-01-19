@@ -1,0 +1,9 @@
+div.logo {
+    position: relative;
+    justify-content: center;
+    padding: 50px 250px 0;
+}
+div.login {
+    text-align: center;
+    font-size: large;
+}
