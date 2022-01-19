@@ -40,6 +40,14 @@ CREATE TABLE Financial
     FOREIGN KEY (id) REFERENCES Students(id)
 );
 
+CREATE TABLE Users
+(
+    `id` INT(10),
+    `Username` VARCHAR(50) NOT NULL UNIQUE,
+    `Password` VARCHAR(200) NOT NULL,
+    FOREIGN KEY (id) REFERENCES Students(id)
+);
+
 
 INSERT INTO Students (Name, Phone_number, Address, Email, DOB, Major, Year)
 VALUES
