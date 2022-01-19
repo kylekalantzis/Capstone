@@ -27,4 +27,6 @@ echo "Connected to the UNH Database";
 
         <label for="password"><b>Password:</b></label>
         <input type="text" placeholder="Enter Password" required>
+
+        <button type="submit">Login</button>
 </div>
