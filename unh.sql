@@ -171,3 +171,26 @@ VALUES
 ('20', 'BMS 503', '86', 'B+'),
 ('20', 'COMP 430', '83', 'B'),
 ('20', 'MATH 425', '75', 'C+');
+
+INSERT INTO Users (id, Username, Password)
+VALUES
+('1', 'bchecchi0', 'yqofXBTLwmUM'),
+('2', 'tbangle1', 'L5q5S3Q1RySu'),
+('3', 'snijs2', 'uTtN2V13t'),
+('4', 'floch3', 'Hc57h1rlBsC'),
+('5', 'cmckinty4', 'Hd23RA47q2'),
+('6', 'dgowthorpe5', '6TL3sIsI'),
+('7', 'lrosewarne6', 'DZ0ikTTc54Cl'),
+('8', 'hleonard7', 'TeRW8E0MA5xt'),
+('9', 'rcollister8', 're6PU3SD0LIk'),
+('10', 'lhorrell9', 'ZXGLpHLY'),
+('11', 'jheinsena', 'ewA4FT'),
+('12', 'hriccib', 'j5RrERCOYCa'),
+('13', 'mbarrowcliffc', 'DvmXUfaS8ZQA'),
+('14', 'gsharplind', 'vi6SEzbnIZlC'),
+('15', 'csaurate', 'po3pDZ8'),
+('16', 'adudeneyf', 'LQng6nSIPt2n'),
+('17', 'rloughtong', 'UHMLMCc'),
+('18', 'blippietth', 'axyBRu9Lg8R'),
+('19', 'aeassomi', 'D4Oo2KH'),
+('20', 'btillj', 'tf3MGmXQ');
