@@ -8,7 +8,7 @@ $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected to the UNH Database";  
+// echo "Connected to the UNH Database";  
 ?>
 <!DOCTYPE HTML>
 <HEAD>
@@ -18,9 +18,8 @@ echo "Connected to the UNH Database";
 <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
 </head>
 <body>
-    <div class="logo">
     <img src="imgs/unh.png" alt="unh">
-</div>
+    <h2> Student Login </h2>
     <div class="login">
         <label for="username"><b>Username:</b></label>
         <input type="text" placeholder="Enter Username" required>
