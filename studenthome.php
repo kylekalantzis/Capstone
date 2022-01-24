@@ -25,3 +25,10 @@ if ($conn->connect_error) {
             <li><a href="profile.php">Profile</a></li>
             <img src="imgs/logo.png" alt="logo">
 </ul>
+<h1> Welcome to the UNH Manchester Student Homepage </h1>
+<p> Here you can view grades, billing, and your personal information </p>
+
+<form action="http://localhost/IS/Project/Capstone/">
+    <button type="submit">Logout</button>
+</form>
+
