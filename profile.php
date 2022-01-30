@@ -1,14 +1,19 @@
 <?php
-$servername = "127.0.0.1";
-$username = "root";
-$password = "Kyle1996";
-$database = "UNHStudents";
-
-$conn = new mysqli($servername, $username, $password, $database);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+session_start();
+// Checks if User is logged in
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: index.html');
+	exit;
 }
-// echo "Connected to the UNH Database";  
+$DATABASE_HOST = '127.0.0.1';
+$DATABASE_USER = 'root';
+$DATABASE_PASS = 'Kyle1996';
+$DATABASE_NAME = 'UNHStudents';
+// Connects to XAMPP
+$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+if ( mysqli_connect_errno() ) {
+	exit('Failed to connect to MySQL: ' . mysqli_connect_error());
+}
 ?>
 
 <!DOCTYPE HTML>
@@ -25,3 +30,17 @@ if ($conn->connect_error) {
             <li><a href="profile.php">Profile</a></li>
             <img src="imgs/logo.png" alt="logo">
 </ul>
+<h1> Account Information </h1>
+</tr>
+<div class
+<?php
+$stmt = $con->prepare('SELECT Name, Phone_number, Address, Email, DOB, Major, Year FROM Students WHERE id = ?');
+$stmt->bind_param('i', $_SESSION['id']);
+$stmt->execute();
+$stmt->bind_result($Name, $Phone_number, $Address, $Email, $DOB, $Major, $Year);
+$stmt->fetch();
+$stmt->close();
+echo "<br> Name: ". $Name . "<br> Phone Number: " .  $Phone_number . "<br> Address: " . $Address . 
+"<br> Email: " . $Email . "<br> Date of Birth: " . $DOB . "<br> Major: " . $Major . "<br> Year: " . $Year;
+?>
+
