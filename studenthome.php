@@ -1,16 +1,11 @@
 <?php
-$servername = "127.0.0.1";
-$username = "root";
-$password = "Kyle1996";
-$database = "UNHStudents";
-
-$conn = new mysqli($servername, $username, $password, $database);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+session_start();
+// If the user is not logged in redirect to the login page...
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: index.html');
+	exit;
 }
-// echo "Connected to the UNH Database";  
 ?>
-
 <!DOCTYPE HTML>
 <HEAD>
 <link rel="stylesheet" href="http://localhost/IS/Project/Capstone/studenthome.css?v=<?php echo time(); ?>">
@@ -25,6 +20,7 @@ if ($conn->connect_error) {
             <li><a href="profile.php">Profile</a></li>
             <img src="imgs/logo.png" alt="logo">
 </ul>
+<p>Welcome back, <?=$_SESSION['name']?>!</p>
 <h1> Welcome to the UNH Manchester Student Homepage </h1>
 <p> Here you can view grades, billing, and your personal information </p>
 
