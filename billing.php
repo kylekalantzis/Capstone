@@ -1,16 +1,20 @@
 <?php
-$servername = "127.0.0.1";
-$username = "root";
-$password = "Kyle1996";
-$database = "UNHStudents";
-
-$conn = new mysqli($servername, $username, $password, $database);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+session_start();
+// Checks if User is logged in
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: index.html');
+	exit;
 }
-// echo "Connected to the UNH Database";  
+$DATABASE_HOST = '127.0.0.1';
+$DATABASE_USER = 'root';
+$DATABASE_PASS = 'Kyle1996';
+$DATABASE_NAME = 'UNHStudents';
+// Connects to XAMPP
+$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+if ( mysqli_connect_errno() ) {
+	exit('Failed to connect to MySQL: ' . mysqli_connect_error());
+}
 ?>
-
 <!DOCTYPE HTML>
 <HEAD>
 <link rel="stylesheet" href="http://localhost/IS/Project/Capstone/billing.css?v=<?php echo time(); ?>">
@@ -25,3 +29,14 @@ if ($conn->connect_error) {
             <li><a href="profile.php">Profile</a></li>
             <img src="imgs/logo.png" alt="logo">
 </ul>
+<h1> Billing </h1>
+<?php
+$sql = $con->prepare('SELECT substr(Social,8), Amount_owed FROM Financial WHERE id = ?');
+$sql->bind_param('i', $_SESSION['id']);
+$sql->execute();
+$sql->bind_result($Social, $Amount_owed);
+$sql->fetch();
+$sql->close();
+echo "<br> Student Social: XX-XXX-". $Social . "<br> Semester Bill: $" .  $Amount_owed;
+?>
+ 

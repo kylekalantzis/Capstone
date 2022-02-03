@@ -34,12 +34,12 @@ if ( mysqli_connect_errno() ) {
 </tr>
 <div class
 <?php
-$stmt = $con->prepare('SELECT Name, Phone_number, Address, Email, DOB, Major, Year FROM Students WHERE id = ?');
-$stmt->bind_param('i', $_SESSION['id']);
-$stmt->execute();
-$stmt->bind_result($Name, $Phone_number, $Address, $Email, $DOB, $Major, $Year);
-$stmt->fetch();
-$stmt->close();
+$sql = $con->prepare('SELECT Name, Phone_number, Address, Email, DOB, Major, Year FROM Students WHERE id = ?');
+$sql->bind_param('i', $_SESSION['id']);
+$sql->execute();
+$sql->bind_result($Name, $Phone_number, $Address, $Email, $DOB, $Major, $Year);
+$sql->fetch();
+$sql->close();
 echo "<br> Name: ". $Name . "<br> Phone Number: " .  $Phone_number . "<br> Address: " . $Address . 
 "<br> Email: " . $Email . "<br> Date of Birth: " . $DOB . "<br> Major: " . $Major . "<br> Year: " . $Year;
 ?>

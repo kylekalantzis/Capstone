@@ -15,14 +15,14 @@ if ( !isset($_POST['username'], $_POST['password']) ) {
 	exit('Please fill both the username and password fields!');
 }
 // Insert new statement here to make vulnerable to SQL injections
-if ($stmt = $con->prepare('SELECT id, password FROM Users WHERE username = ?')) {
-	$stmt->bind_param('s', $_POST['username']);
-	$stmt->execute();
+if ($sql = $con->prepare('SELECT id, password FROM Users WHERE username = ?')) {
+	$sql->bind_param('s', $_POST['username']);
+	$sql->execute();
 	// Store the result so we can check if the account exists in the database.
-	$stmt->store_result();
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($id, $password);
-        $stmt->fetch();
+	$sql->store_result();
+    if ($sql->num_rows > 0) {
+        $sql->bind_result($id, $password);
+        $sql->fetch();
         // Account exists, now we verify the password.
         if ($_POST['password'] === $password) {
             // Verification success! User has logged-in!
