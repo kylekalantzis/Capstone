@@ -35,18 +35,18 @@ CREATE TABLE Grades
 CREATE TABLE Financial
 (
     `id` INT(10),
-    `Social` INT(9) NOT NULL,
-    `Amount_owed` DECIMAL(50) NOT NULL,
+    `Social` VARCHAR(11) NOT NULL,
+    `Amount_owed` DECIMAL(6, 2) NOT NULL,
     FOREIGN KEY (id) REFERENCES Students(id)
 );
 
 CREATE TABLE Users
 (
     `id` INT(10),
-    `Username` VARCHAR(50) NOT NULL UNIQUE,
-    `Password` VARCHAR(200) NOT NULL,
+    `username` VARCHAR(50) NOT NULL UNIQUE,
+    `password` VARCHAR(200) NOT NULL,
     FOREIGN KEY (id) REFERENCES Students(id)
-);
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO Students (Name, Phone_number, Address, Email, DOB, Major, Year)
@@ -172,25 +172,50 @@ VALUES
 ('20', 'COMP 430', '83', 'B'),
 ('20', 'MATH 425', '75', 'C+');
 
-INSERT INTO Users (id, Username, Password)
+INSERT INTO Users (id, username, password)
 VALUES
-('1', 'bchecchi0', 'yqofXBTLwmUM'),
-('2', 'tbangle1', 'L5q5S3Q1RySu'),
-('3', 'snijs2', 'uTtN2V13t'),
-('4', 'floch3', 'Hc57h1rlBsC'),
-('5', 'cmckinty4', 'Hd23RA47q2'),
-('6', 'dgowthorpe5', '6TL3sIsI'),
-('7', 'lrosewarne6', 'DZ0ikTTc54Cl'),
-('8', 'hleonard7', 'TeRW8E0MA5xt'),
-('9', 'rcollister8', 're6PU3SD0LIk'),
-('10', 'lhorrell9', 'ZXGLpHLY'),
-('11', 'jheinsena', 'ewA4FT'),
-('12', 'hriccib', 'j5RrERCOYCa'),
-('13', 'mbarrowcliffc', 'DvmXUfaS8ZQA'),
-('14', 'gsharplind', 'vi6SEzbnIZlC'),
-('15', 'csaurate', 'po3pDZ8'),
-('16', 'adudeneyf', 'LQng6nSIPt2n'),
-('17', 'rloughtong', 'UHMLMCc'),
-('18', 'blippietth', 'axyBRu9Lg8R'),
-('19', 'aeassomi', 'D4Oo2KH'),
-('20', 'btillj', 'tf3MGmXQ');
+(1, 'bchecchi0', 'yqofXBTLwmUM'),
+(2, 'tbangle1', 'L5q5S3Q1RySu'),
+(3, 'snijs2', 'uTtN2V13t'),
+(4, 'floch3', 'Hc57h1rlBsC'),
+(5, 'cmckinty4', 'Hd23RA47q2'),
+(6, 'dgowthorpe5', '6TL3sIsI'),
+(7, 'lrosewarne6', 'DZ0ikTTc54Cl'),
+(8, 'hleonard7', 'TeRW8E0MA5xt'),
+(9, 'rcollister8', 're6PU3SD0LIk'),
+(10, 'lhorrell9', 'ZXGLpHLY'),
+(11, 'jheinsena', 'ewA4FT'),
+(12, 'hriccib', 'j5RrERCOYCa'),
+(13, 'mbarrowcliffc', 'DvmXUfaS8ZQA'),
+(14, 'gsharplind', 'vi6SEzbnIZlC'),
+(15, 'csaurate', 'po3pDZ8'),
+(16, 'adudeneyf', 'LQng6nSIPt2n'),
+(17, 'rloughtong', 'UHMLMCc'),
+(18, 'blippietth', 'axyBRu9Lg8R'),
+(19, 'aeassomi', 'D4Oo2KH'),
+(20, 'kyle', 'test');
+
+INSERT INTO Financial (id, Social, Amount_owed)
+VALUES
+(1, '778-60-9266', '3041.10'),
+(2, '574-57-7769','3485.93'),
+(3, '605-01-8568','2237.47'),
+(4, '100-14-6576','4246.39'),
+(5, '468-55-7502','1481.54'),
+(6, '792-12-2701','1166.12'),
+(7, '734-06-1611','4538.50'),
+(8, '678-91-8425','1441.98'),
+(9, '228-50-0347','7968.96'),
+(10, '825-40-3702','4946.79'),
+(11, '158-47-3178','7468.65'),
+(12, '799-58-3143','5073.73'),
+(13, '233-35-5022','1899.83'),
+(14, '309-05-3564','1741.97'),
+(15, '262-71-0965','6911.35'),
+(16, '623-36-8390','3604.40'),
+(17, '236-81-3499','4714.92'),
+(18, '684-63-9714','2556.87'),
+(19, '100-18-2015','7019.43'),
+(20, '720-05-3269','3738.83');
+
+SELECT * FROM Financial;
