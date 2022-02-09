@@ -14,23 +14,18 @@ if ( mysqli_connect_errno() ) {
 if ( !isset($_POST['username'], $_POST['password']) ) {
 	exit('Please fill both the username and password fields!');
 }
-// Insert new statement here to make vulnerable to SQL injections
-if ($sql = $con->prepare('SELECT id, password FROM Users WHERE username = ?')) {
-	$sql->bind_param('s', $_POST['username']);
+
+if ($sql = $con->prepare('SELECT id, password FROM Users WHERE username = "' . $_POST['username'] . '"')) {
 	$sql->execute();
-	// Store the result so we can check if the account exists in the database.
 	$sql->store_result();
-    if ($sql->num_rows > 0) {
+    if ($sql->num_rows != 0) {
         $sql->bind_result($id, $password);
         $sql->fetch();
-        // Account exists, now we verify the password.
         if ($_POST['password'] === $password) {
-            // Verification success! User has logged-in!
-            // Create sessions, so we know the user is logged in, they basically act like cookies but remember the data on the server.
             session_regenerate_id();
             $_SESSION['loggedin'] = TRUE;
             $_SESSION['name'] = $_POST['username'];
-            $_SESSION['id'] = $id;
+            $_SESSION['id'] = $id;  
             header('Location: studenthome.php');
     } else {
             // Incorrect password
@@ -41,6 +36,8 @@ if ($sql = $con->prepare('SELECT id, password FROM Users WHERE username = ?')) {
         echo 'Incorrect username and/or password!';
     }
 
-	$stmt->close();
+	$sql->close();
 }
 ?>
+<div>
+<a href="http://localhost/IS/Project/Capstone/index.html">Go Back</a>
