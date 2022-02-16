@@ -70,7 +70,9 @@ VALUES
 ('Palmer Junkinson', '2009004392', '8 Forest Dale Parkway', 'pjunkinsong@cnet.com', '2002-09-04', 'Computer Science', 'Freshman'),
 ('Albertine Januszewicz', '1329683928', '2 Hermina Street', 'ajanuszewiczh@ucla.edu', '2001-08-10', 'Education', 'Sophomore'),
 ('Woodie Braidley', '8675525320', '812 Hudson Street', 'wbraidleyi@usatoday.com', '1999-05-06', 'Cybersecurity', 'Senior'),
-('Pepito Devil', '7265974977', '970 Mitchell Hill', 'pdevilj@gnu.org', '2001-02-09', 'Computer Science', 'Sophomore');
+('Pepito Devil', '7265974977', '970 Mitchell Hill', 'pdevilj@gnu.org', '2001-02-09', 'Computer Science', 'Sophomore'),
+('UNHM Admin', '0000000000', '88 Commercial St', 'unhitadmin@wildcats.unh.edu', '2021-01-01', 'IT', 'Staff');
+
 
 INSERT INTO Courses (Course_id, Course_name)
 VALUES
@@ -170,7 +172,8 @@ VALUES
 ('20', 'ET 421', '70', 'C'),
 ('20', 'BMS 503', '86', 'B+'),
 ('20', 'COMP 430', '83', 'B'),
-('20', 'MATH 425', '75', 'C+');
+('20', 'MATH 425', '75', 'C+'),
+('21', 'MATH 425', '0', 'F');
 
 INSERT INTO Users (id, username, password)
 VALUES
@@ -193,7 +196,9 @@ VALUES
 (17, 'rloughtong', 'UHMLMCc'),
 (18, 'blippietth', 'axyBRu9Lg8R'),
 (19, 'aeassomi', 'D4Oo2KH'),
-(20, 'kyle', 'test');
+(20, 'kyle', 'test'),
+(21, 'admin', 'unh');
+
 
 INSERT INTO Financial (id, Social, Amount_owed)
 VALUES
@@ -216,6 +221,7 @@ VALUES
 (17, '236-81-3499','4714.92'),
 (18, '684-63-9714','2556.87'),
 (19, '100-18-2015','7019.43'),
-(20, '720-05-3269','3738.83');
+(20, '720-05-3269','3738.83'),
+(21, '000-00-0000','0000.00');
 
-SELECT * FROM Financial;
+
