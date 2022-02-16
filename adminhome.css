@@ -1,0 +1,42 @@
+ul {
+    margin: 0;
+    overflow: hidden;
+    background-color:midnightblue;
+}
+img {
+    width: 3%;
+    float: right;
+    padding: 10px 40px;
+
+}
+h1 {
+    background-image: url(imgs/home.jpeg);
+    padding: 160px;
+    margin: auto;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 5px black;
+    font-size: 40px;
+}
+button {
+    margin: auto;
+    display: block;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+p {
+    text-align: center;
+    font-size: 30px;
+
+}
+input[type=submit] {
+    width: 200px;
+    border-radius: 4px;
+    height: 30px;
+    margin: auto;
+}
+li {
+    list-style: none;
+    text-align: center;
+}
