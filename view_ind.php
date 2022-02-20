@@ -59,3 +59,13 @@ if($result->num_rows > 0) {
     }
 } 
 ?>
+<h4> Login Information </h4>
+<?php
+$sql = "SELECT id, username, password FROM Users WHERE id=${id}";
+$result = $con->query($sql);
+if($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo "<br>Username: " . $row["username"] . "<br> Password: " .  $row['password'];
+    }
+} 
+?>

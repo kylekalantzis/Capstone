@@ -56,7 +56,16 @@ if($result->num_rows > 0) {
 } else {
     echo "Database Empty" ;
 }
-
-
 ?>
+<h2> Login Information </h2>
+<?php
+$sql = "SELECT id, username, password FROM Users";
+$result = $con->query($sql);
+if($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo "<br>ID: " . $row["id"] . "<br>Username: " . $row["username"] . "<br> Password: " .  $row['password'];
+    }
+} else {
+    echo "Database Empty" ;
+}
 
