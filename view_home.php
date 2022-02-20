@@ -19,7 +19,7 @@ if (!isset($_SESSION['loggedin'])) {
 <a href="http://localhost/IS/Project/Capstone/adminhome.php">Go Back</a>
 <h2> View Student Data </h2>
 <li>
-        <form action="http://localhost/IS/Project/Capstone/view_home.php">
+        <form action="http://localhost/IS/Project/Capstone/view_ind.php">
             <input type="submit" value="View Student"/>
         </form>
         <form action="http://localhost/IS/Project/Capstone/view_all.php">

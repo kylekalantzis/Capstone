@@ -21,42 +21,44 @@ if ( mysqli_connect_errno() ) {
 <img src="imgs/logo.png" alt="logo">
 </ul>
 <a href="http://localhost/IS/Project/Capstone/view_home.php">Go Back</a>
-<h2> Personal Information </h2>
+<form action="" method="POST">
+    ID: <input type="number" name="id"><br>
+    <input type="submit">
+</form>
 <?php
-$sql = "SELECT id, Name, Phone_number, Address, Email, DOB, Major, Year FROM Students";
-$result = $con->query($sql);
-if($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        echo "<br>ID: " . $row["id"]  . "<br>Name: " . $row["Name"] . "<br> Phone Number: " . $row["Phone_number"].
-        "<br> Address: " . $row["Address"] . "<br> Email: " . $row["Email"] . "<br> DOB: " . $row["DOB"] . 
-        "<br> Major: " . $row["Major"] . "<br> Year: " . $row["Year"] . "<br>" . "<br>";
-    }
-}
+if ($_SERVER ["REQUEST_METHOD"] == "POST") {
+    $id = $_POST["id"];
+    $sql = "SELECT id, Name, Phone_number, Address, Email, DOB, Major, Year FROM Students WHERE id=${id}";
+    $result = $con->query($sql);
+    if($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo "<br>ID: " . $row["id"]  . "<br>Name: " . $row["Name"] . "<br> Phone Number: " . $row["Phone_number"].
+            "<br> Address: " . $row["Address"] . "<br> Email: " . $row["Email"] . "<br> DOB: " . $row["DOB"] . 
+            "<br> Major: " . $row["Major"] . "<br> Year: " . $row["Year"];
+        }
+    }}
 ?>
-<h2> Financial Information </h2>
 <?php
-$sql = "SELECT id, Social, Amount_owed FROM Financial";
+$sql = "SELECT id, Social, Amount_owed FROM Financial WHERE id=${id}";
 $result = $con->query($sql);
 if($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        echo "<br>ID: " . $row["id"] . "<br>Social: " . $row["Social"] . "<br>Bill: $" . $row["Amount_owed"];
-    }
-} else {
-    echo "Database Empty" ;
-}
-?>
-<h2> Academic Information </h2>
-<?php
-$sql = "SELECT id, Course_id, Grade, Letter FROM Grades";
-$result = $con->query($sql);
-if($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        echo "<br>ID: " . $row["id"] . "<br>Course: " . $row["Course_id"] . "<br> Grade: " .  $row['Grade'] . " | " . $row['Letter'];
+        echo "<br>Social: " . $row["Social"] . "<br>Bill: $" . $row["Amount_owed"];
     }
 } else {
     echo "Database Empty" ;
 }
+?>
+<?php
+$sql = "SELECT id, Course_id, Grade, Letter FROM Grades WHERE id=${id}";
+$result = $con->query($sql);
+if($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo "<br>Course: " . $row["Course_id"] . "<br> Grade: " .  $row['Grade'] . " | " . $row['Letter'];
+    }
+} else {
+    echo "Database Empty" ;
+}
 
 
 ?>
-
