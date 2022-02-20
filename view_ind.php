@@ -25,6 +25,7 @@ if ( mysqli_connect_errno() ) {
     ID: <input type="number" name="id"><br>
     <input type="submit">
 </form>
+<h4> Personal Information </h4>
 <?php
 if ($_SERVER ["REQUEST_METHOD"] == "POST") {
     $id = $_POST["id"];
@@ -38,6 +39,7 @@ if ($_SERVER ["REQUEST_METHOD"] == "POST") {
         }
     }}
 ?>
+<h4> Financial Information </h4>
 <?php
 $sql = "SELECT id, Social, Amount_owed FROM Financial WHERE id=${id}";
 $result = $con->query($sql);
@@ -45,10 +47,9 @@ if($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "<br>Social: " . $row["Social"] . "<br>Bill: $" . $row["Amount_owed"];
     }
-} else {
-    echo "Database Empty" ;
-}
+} 
 ?>
+<h4> Academic Information </h4>
 <?php
 $sql = "SELECT id, Course_id, Grade, Letter FROM Grades WHERE id=${id}";
 $result = $con->query($sql);
@@ -56,9 +57,5 @@ if($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "<br>Course: " . $row["Course_id"] . "<br> Grade: " .  $row['Grade'] . " | " . $row['Letter'];
     }
-} else {
-    echo "Database Empty" ;
-}
-
-
+} 
 ?>
